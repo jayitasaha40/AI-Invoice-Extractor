@@ -1,0 +1,33 @@
+# config.yaml
+
+tesseract:
+  tesseract_cmd: "C:\\Users\\RushabhDedhia\\AppData\\Roaming\\Python\\Python310\\site-packages\\pytesseract\\tesseract.exe"
+
+poppler:
+  path: "C:\\path\\to\\poppler\\poppler-21.03.0\\bin\\poppler.exe"
+
+mistral:
+  api_endpoint: "https://api.mistral.ai/v1/chat/completions"
+  token: "YOUR_TOKEN"
+  model: "mistral-tiny"
+
+google_generativeai:
+  api_key: "YOUR_GENERATIVEAI_API_KEY"
+  model_name: "gemini-pro-vision"
+  generation_config:
+    temperature: 0
+    top_p: 1
+    top_k: 32
+    max_output_tokens: 4096
+  safety_settings:
+    - category: "HARM_CATEGORY_HARASSMENT"
+      threshold: "BLOCK_MEDIUM_AND_ABOVE"
+    - category: "HARM_CATEGORY_HATE_SPEECH"
+      threshold: "BLOCK_MEDIUM_AND_ABOVE"
+    - category: "HARM_CATEGORY_SEXUALLY_EXPLICIT"
+      threshold: "BLOCK_MEDIUM_AND_ABOVE"
+    - category: "HARM_CATEGORY_DANGEROUS_CONTENT"
+      threshold: "BLOCK_MEDIUM_AND_ABOVE"
+
+streamlit:
+  save_path: "C:\\Users\\JayitaSaha\\Documents\\JAYI\\ML\\Rushabh\\Mixtral"

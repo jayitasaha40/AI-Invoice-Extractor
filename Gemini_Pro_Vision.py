@@ -4,47 +4,31 @@ At the command line, only need to run once to install the package via pip:
 $ pip install google-generativeai
 """
 
+import yaml
 from pathlib import Path
 import google.generativeai as genai
 
-genai.configure(api_key="") #Provide your API Key
+def load_config(file_path="config.yaml"):
+    with open(file_path, "r") as file:
+        config = yaml.safe_load(file)
+    return config
 
-# Set up the model
-generation_config = {
-  "temperature": 0,
-  "top_p": 1,
-  "top_k": 32,
-  "max_output_tokens": 4096,
-}
+def setup_generative_ai_model(config):
+    genai.configure(api_key=config["google_generativeai"]["api_key"])
+    
+    generation_config = config["google_generativeai"]["generation_config"]
+    safety_settings = config["google_generativeai"]["safety_settings"]
+    
+    model_name = config["google_generativeai"]["model_name"]
+    
+    return genai.GenerativeModel(model_name=model_name,
+                                 generation_config=generation_config,
+                                 safety_settings=safety_settings)
 
-safety_settings = [
-  {
-    "category": "HARM_CATEGORY_HARASSMENT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_HATE_SPEECH",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_SEXUALLY_EXPLICIT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-  {
-    "category": "HARM_CATEGORY_DANGEROUS_CONTENT",
-    "threshold": "BLOCK_MEDIUM_AND_ABOVE"
-  },
-]
+# Load configuration
+config = load_config()
 
-model = genai.GenerativeModel(model_name="gemini-pro-vision",
-                              generation_config=generation_config,
-                              safety_settings=safety_settings)
-
-# Validate that an image is present
-# if not (img := Path("ABM ENTERPRISES 4.jpg")).exists():
-#   raise FileNotFoundError(f"Could not find image: {img}")
-
-
+model = setup_generative_ai_model(config)
 
 
 
