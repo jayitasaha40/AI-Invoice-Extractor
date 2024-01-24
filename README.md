@@ -6,7 +6,7 @@ AI-Invoice-Extractor is a Streamlit web application that utilizes Gemini Pro and
 
 Before you begin, ensure you have met the following requirements:
 
-- Python 3.x installed
+- Python 3.11.4 installed
 - Pip package manager installed
 - Tesseract installed (OCR tool)
 - Poppler installed (PDF processing tool)
@@ -16,7 +16,7 @@ Before you begin, ensure you have met the following requirements:
 1. **Clone the repository:**
 
     ```bash
-    git clone https://github.com/yourusername/AI-Invoice-Extractor.git
+    git clone https://github.com/jayitasaha40/AI-Invoice-Extractor.git
     cd AI-Invoice-Extractor
     ```
 
