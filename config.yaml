@@ -11,6 +11,11 @@ mistral:
   token: "YOUR_TOKEN"
   model: "mistral-tiny"
 
+AWS:
+  aws_access_key_id: ""
+  aws_secret_access_key: ""
+  aws_session_token: ""
+
 google_generativeai:
   api_key: "YOUR_GENERATIVEAI_API_KEY"
   model_name: "gemini-pro-vision"
