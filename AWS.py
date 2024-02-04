@@ -2,7 +2,12 @@ import boto3
 import fitz
 import os
  
- 
+def load_config(file_path="config.yaml"):
+    with open(file_path, "r") as file:
+        config = yaml.safe_load(file)
+    return config
+
+config = load_config()
 def is_pdf_file(filename):
     return filename.lower().endswith('.pdf')
  
