@@ -7,12 +7,12 @@ def load_config(file_path="config.yaml"):
         config = yaml.safe_load(file)
     return config
 
-config = load_config()
+
 def is_pdf_file(filename):
     return filename.lower().endswith('.pdf')
  
 def extract(input_file):
-    
+    config = load_config()
  
     text = ""
  
